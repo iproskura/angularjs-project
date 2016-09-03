@@ -23977,7 +23977,7 @@ function baseInputType(scope, element, attr, ctrl, $sniffer, $browser) {
     // By default we will trim the value
     // If the attribute ng-trim exists we will avoid trimming
     // If input type is 'password', the value is never trimmed
-    if (type !== 'password' && (!attr.ngTrim || attr.ngTrim !== 'false')) {
+    if (type !== 'email' && (!attr.ngTrim || attr.ngTrim !== 'false')) {
       value = trim(value);
     }
 

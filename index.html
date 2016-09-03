@@ -1,93 +1,189 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="ketPortfolio">
 <head>
-    <title>Angular portfolio project</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,800" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.css">
-    <!--<link rel="stylesheet" href="css/style.css">-->
+  <title>Angular portfolio project</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,800" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.css">
+  <link rel="stylesheet" href="css/style.css">
 
-    <script src="script/angular.js"></script>
-    <script src="script/mainscript.js"></script>
+  <script src="script/angular.js"></script>
+  <script src="script/mainscript.js"></script>
 </head>
 <body ng-controller="mainCtrl">
 
-<div id="wrapper">
-    <!-- navbar -->
-    <div class="container-fluid navbar navbar-fixed-top header">
-        <div class="container">
-            <div class="pull-left logo">
-                <a href="#"><img src="img/logo.png" alt="" class="img-responsive"></a>
-            </div>
-            <nav class="pull-right navbar navbar-light">
-                <div id="menu" class="nav navbar-nav">
-                    <a href="#" class="nav-item nav-link">Home</a>
-                    <a href="#" class="nav-item nav-link">Services</a>
-                    <a href="#" class="nav-item nav-link">Portfolio</a>
-                    <a href="#" class="nav-item nav-link">About</a>
-                    <a href="#" class="nav-item nav-link">News</a>
-                    <a href="#" class="nav-item nav-link">Contact</a>
+<div id="wrapper" class="container-fluid">
+  <!-- navbar -->
+  <div class="container-fluid navbar navbar-fixed-top header">
+    <div class="container">
+      <div class="pull-left logo">
+        <a href="#"><img src="img/logo.png" alt="" class="img-responsive"></a>
+      </div>
+      <nav class="pull-right navbar navbar-light">
+        <div id="menu" class="nav navbar-nav">
+          <a href="#" class="nav-item nav-link">Home</a>
+          <a href="#" class="nav-item nav-link">Services</a>
+          <a href="#" class="nav-item nav-link">Portfolio</a>
+          <a href="#" class="nav-item nav-link">About</a>
+          <a href="#" class="nav-item nav-link">News</a>
+          <a href="#" class="nav-item nav-link">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- endof navbar -->
+
+  <div id="landing">
+    <div class="container-fluid">
+      <img src="img/header-bg.jpg" alt="">
+      <button id="starttour" type="button">Start tour</button>
+    </div>
+  </div>
+  <!--endof #landing-->
+
+  <div id="services">
+    <div class="container-fluid">
+      <div id="ourservices">
+
+      </div>
+      <div id="services2">
+
+      </div>
+    </div>
+  </div>
+  <!--endof #services-->
+
+  <div id="portfolio">
+    <div class="container-fluid">
+      <div id="portfoliosub">
+
+        <button id="getnow" type="button">Get now</button>
+      </div>
+      <div id="stats">
+
+      </div>
+    </div>
+  </div>
+  <!--endof portfolio-->
+  <div id="about">
+    <div class="container-fluid">
+      <div id="team">
+
+      </div>
+    </div>
+  </div>
+  <!--endof #about-->
+
+  <div id="news">
+
+  </div>
+  <!--endof #news-->
+
+  <div id="contact">
+    <div class="container-fluid">
+      <div class="container-fluid well">
+
+        <div class="row">
+          <div class="col-md-8 col-lg-8">
+
+            <!--TODO Форма с полями Name, Email, Message. Валидация формы происходит при нажатии на клавиши. При вводе пользователем некорректных данных в поле ввода под этим полем сразу отображается сообщение об ошибке. Сообщение об ошибке сразу же скрывается, если пользователь ввел корректные данные.-->
+
+            <!--TODO В поле Name допускаются только буквы английского алфавита.-->
+
+            <!--TODO В поле Email допускаются толко буквы английского алфавита, цифры, знак подчеркивание и симвом @.-->
+
+            <!--TODO В поле Message допускаются любые символы. Минимальная длина сообщения - 20 символов.-->
+
+            <!--TODO При отправке формы значения полей Name и Email сохраняются в cookies.-->
+
+            <!--TODO При следующем заходе пользователя на страницу сохраненные данные используются для автозаполнения полей Name и Email.-->
+
+
+            <form name="messageForm" class="form-horizontal" novalidate
+                  ng-controller="formCtrl" ng-submit="submit()">
+
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <input class="form-control" name="username" type="text"
+                         placeholder="Username" required ng-model="myform.username" ng-pattern="nameRegex"/><br>
+                  <span class="help-block"
+                        ng-show="messageForm.username.$invalid && messageForm.username.$dirty">English alphabet only</span>
                 </div>
-            </nav>
+
+                <div class="form-group col-md-6"
+                     ng-class="{'has-error': messageForm.email.$invalid}">
+                  <input class="form-control" name="email" type="email"
+                         placeholder="your@email.com" required ng-model="myform.password"/><br>
+                  <span class="help-block"
+                        ng-show="messageForm.email.$invalid && messageForm.email.$dirty">This is not a valid email.</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-sm-12"
+                     ng-class="{'has-error': messageForm.username.$invalid}">
+                                <textarea class="form-control" placeholder="Your message.."
+                                          name="message" required ng-model="myform.message"
+                                          ng-minlength="20"
+                                ></textarea><br>
+                  <span class="help-block"
+                        ng-show="messageForm.message.$error.minlength">Min length 20 symbols</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary col-md-2"
+                        value="Login" title="Submit" ng-disabled="!messageForm.$valid"
+                        ng-class="{'btn-danger': !messageForm.$valid}">
+                  <span>Login</span>
+                </button>
+              </div>
+            </form>
+
+          </div>
         </div>
+      </div>
+
+      <div id="address">
+
+      </div>
+    </div> <!-- container-->
+
+  </div>
+  <!--endof contact-->
+  <footer>
+    <div class="container-fluid">
+      <button id="goup" type="button">&DoubleUpArrow; GO top</button>
     </div>
-    <!-- endof navbar -->
-
-    <div id="landing">
-
-    </div>
-    <!--endof #landing-->
-
-    <div id="services">
-        <div id="ourservices">
-
-        </div>
-        <div id="services2">
-
-        </div>
-    </div>
-    <!--endof #services-->
-
-    <div id="portfolio">
-        <div id="portfoliosub">
-
-        </div>
-        <div id="stats">
-
-        </div>
-    </div>
-    <!--endof portfolio-->
-    <div id="about">
-        <div id="team">
-
-        </div>
-    </div>
-    <!--endof #about-->
-
-    <div id="news">
-
-    </div>
-    <!--endof #news-->
-
-    <div id="contact">
-        <div id="contactform">
-
-        </div>
-        <div id="address">
-
-        </div>
-
-    </div>
-    <!--endof contact-->
-    <footer>
-
-    </footer>
+  </footer>
 
 </div>
 <!-- endof #wrapper -->
 
 </body>
 </html>
+
+
+<!-- ************************************************ -->
+<!--https://code.angularjs.org/1.5.8/docs/guide/forms-->
+
+<!--
+
+<div ng-switch on="main.user.access">
+  <div ng-switch-when="admin">
+    &lt;!&ndash; code for admins &ndash;&gt;
+  </div>
+  <div ng-switch-when="user">
+    &lt;!&ndash; code for users &ndash;&gt;
+  </div>
+  <div ng-switch-when="author">
+    &lt;!&ndash; code for authors &ndash;&gt;
+  </div>
+</div>
+-->
+
+<!-- *********************** -->
+
