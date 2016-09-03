@@ -4,10 +4,6 @@
   border: 1px outset steelblue;
 }
 
-body {
-  padding: 0;
-  margin: 0;
-}
 
 #wrapper {
   /*TODO remove*/
@@ -28,9 +24,26 @@ body {
   /*background-color: #0099cc;*/
 }
 
+#landing > div {
+  background-image: url("../img/header-bg.jpg");
+  background-size: 95%;
+  height: 800px;
+}
+
+#landing button {
+  z-index: 100;
+  margin-top: 250px;
+  margin-left:550px;
+}
+
 #services {
   height: 1363px;
   /*background-color: #3366ff;*/
+}
+
+#services .row {
+  display: inline-block;
+  padding: 15px;
 }
 
 #portfolio {
@@ -100,7 +113,8 @@ body {
 .navbar-nav {
   margin-right: -50px;
 }
-footer span{
+
+footer span {
 
   text-align: center;
 }

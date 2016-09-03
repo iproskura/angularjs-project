@@ -1,29 +1,44 @@
-angular.module("ketPortfolio", ["duScroll"])
+angular.module("ketPortfolio", ["duScroll", "ngCookies"])
   .value("duScrollDuration", 1000)
   .value("duScrollOffset", 30)
 
-.controller("mainCtrl", ["$scope", "$document", function ($scope, $document) {
-
-  $scope.toTheTop = function () {
-    $document.scrollTop(0, 3000);
-  };
+  .controller("mainCtrl", ["$scope", "$document", function ($scope, $document) {
 
 
+    $scope.toTheTop = function () {
+      $document.scrollTop(0, 3000);
+    };
 
 
+  }]) // mainCtrl
+
+  .controller("serviceCtrl", ["$scope", function ($scope) {
+
+    $scope.serviceList = [
+      {src: "img/service_00.png", alt: "web"},
+      {src: "img/service_01.png", alt: "design"},
+      {src: "img/service_02.png", alt: "programming"},
+      {src: "img/service_03.png", alt: "photography"}
+    ];
+    //web design programming photo
 
 
+    $scope.serviceSwitchValue = 0;
+    $scope.switch = function (index) {
+      $scope.serviceSwitchValue = index;
+    }
 
-}]) // mainCtrl
-.controller("formCtrl", ["$scope", function ($scope) {
+  }])
 
-  $scope.nameRegex = /^[a-z]+$/i;
-  $scope.mailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]+$/;
+  .controller("formCtrl", ["$scope", "$cookies", function ($scope, $cookies) {
 
-  $scope.myform = {};
+    $scope.nameRegex = /^[a-z]+$/i;
+    $scope.mailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]+$/;
 
-  $scope.submit = function () {
-    console.log("submitting...")
+    $scope.myform = {};
 
-  }
-}])  //formCtrl
+    $scope.submit = function () {
+      console.log("submitting...")
+
+    }
+  }])  //formCtrl

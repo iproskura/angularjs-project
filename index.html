@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/style.css">
 
   <script src="script/angular.js"></script>
+  <script src="script/angular-cookies.js"></script>
   <script src="script/angular-scroll-master/angular-scroll.min.js"></script>
   <script src="script/mainscript.js"></script>
 </head>
@@ -40,19 +41,40 @@
 
   <div id="landing">
     <div class="container-fluid">
-      <img src="img/header-bg.jpg" alt="">
-      <button id="starttour" type="button" du-smooth-scroll="portfolio">Start tour</button>
+      <!--<img src="img/header-bg.jpg" alt="">-->
+      <button id="starttour" type="button" du-smooth-scroll="portfolio" class="btn-lg btn-info">Start tour</button>
     </div>
   </div>
   <!--endof #landing-->
 
-  <div id="services">
-    <div class="container-fluid">
+  <div id="services" ng-controller="serviceCtrl">
+    <div class="container-fluid well">
       <div id="ourservices">
+        <div class="container-fluid">
+          <div class="col-md-3 col-sm-3" ng-repeat="item in serviceList">
+            <img src="{{item.src}}" alt="{{item.alt}}" ng-click="switch($index)"></div>
+          <div class="col-md-8" ng-switch="serviceSwitchValue">
+            <div ng-switch-when="0"><h1>Parma festus calceus est. Audax, camerarius mensas unus imitari de fortis,
+              placidus fermium. Fidelis cursus vix transferres fortis est.</h1></div>
+            <div ng-switch-when="1"><h1>The psychic uniqueness of definition is to illuminate with satori.
+              earth.</h1></div>
+            <div ng-switch-when="2"><h1>The hornpipe raids with courage, loot the quarter-deck before it sings.
+              doubloons.</h1></div>
+            <div ng-switch-when="3"><h1>All those definitions will be lost in advices like ellipses in minerals
+              courage.</h1></div>
 
+          </div>
+        </div>
       </div>
       <div id="services2">
-
+        <div class="container-fluid">
+          <div class="col-md-4">
+            <img src="img/phones.png" alt="">
+          </div>
+          <div class="col-md-8 pull-right">
+            <button id="getnow" type="button" du-smooth-scroll="contact">Get now</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -60,9 +82,10 @@
 
   <div id="portfolio">
     <div class="container-fluid">
+
       <div id="portfoliosub">
 
-        <button id="getnow" type="button" du-smooth-scroll="contact">Get now</button>
+
       </div>
       <div id="stats">
 
@@ -162,24 +185,4 @@
 </body>
 </html>
 
-
-<!-- ************************************************ -->
-<!--https://code.angularjs.org/1.5.8/docs/guide/forms-->
-
-<!--
-
-<div ng-switch on="main.user.access">
-  <div ng-switch-when="admin">
-    &lt;!&ndash; code for admins &ndash;&gt;
-  </div>
-  <div ng-switch-when="user">
-    &lt;!&ndash; code for users &ndash;&gt;
-  </div>
-  <div ng-switch-when="author">
-    &lt;!&ndash; code for authors &ndash;&gt;
-  </div>
-</div>
--->
-
-<!-- *********************** -->
 
