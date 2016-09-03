@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="css/bootstrap-theme.css">
   <link rel="stylesheet" href="css/style.css">
 
-  <script src="script/angular.js"></script>
   <script src="script/angular-cookies.js"></script>
+  <script src="script/angular.js"></script>
   <script src="script/angular-scroll-master/angular-scroll.min.js"></script>
   <script src="script/mainscript.js"></script>
 </head>
@@ -134,7 +134,7 @@
                 <div class="form-group col-md-6"
                      ng-class="{'has-error': messageForm.email.$invalid && messageForm.email.$dirty}">
                   <input class="form-control" name="email" type="email"
-                         placeholder="your@email.com" required ng-model="myform.password"/><br>
+                         placeholder="your@email.com" required ng-model="myform.email"/><br>
                   <span class="help-block"
                         ng-show="messageForm.email.$invalid && messageForm.email.$dirty">This is not a valid email.</span>
                   <span class="help-block"
@@ -157,7 +157,7 @@
                 <button type="submit" class="btn btn-primary col-md-2"
                         value="Login" title="Submit" ng-disabled="!messageForm.$valid"
                         ng-class="{'btn-danger': !messageForm.$valid && messageForm.$dirty}">
-                  <span>Login</span>
+                  <span>Submit message</span>
                 </button>
               </div>
             </form>

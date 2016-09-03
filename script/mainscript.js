@@ -13,6 +13,11 @@ angular.module("ketPortfolio", ["duScroll", "ngCookies"])
   }]) // mainCtrl
 
   .controller("serviceCtrl", ["$scope", function ($scope) {
+    /*$scope.serviceList = [
+      "img/service_00.png",
+      "img/service_01.png",
+      "img/service_02.png",
+      "img/service_03.png"];*/
 
     $scope.serviceList = [
       {src: "img/service_00.png", alt: "web"},
@@ -37,8 +42,11 @@ angular.module("ketPortfolio", ["duScroll", "ngCookies"])
 
     $scope.myform = {};
 
+
     $scope.submit = function () {
       console.log("submitting...")
+
+
 
     }
   }])  //formCtrl
