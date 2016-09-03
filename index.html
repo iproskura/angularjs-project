@@ -113,12 +113,6 @@
 
         <div class="row">
           <div class="col-md-8 col-lg-8">
-
-            <!--TODO При отправке формы значения полей Name и Email сохраняются в cookies.-->
-
-            <!--TODO При следующем заходе пользователя на страницу сохраненные данные используются для автозаполнения полей Name и Email.-->
-
-
             <form name="messageForm" class="form-horizontal" novalidate
                   ng-controller="formCtrl" ng-submit="submit()">
 
@@ -126,7 +120,7 @@
                 <div class="form-group col-md-6"
                      ng-class="{'has-error': messageForm.username.$invalid && messageForm.username.$dirty}">
                   <input class="form-control" name="username" type="text"
-                         placeholder="Username" required ng-model="myform.username" ng-pattern="nameRegex"/><br>
+                         placeholder="Username" required ng-model="myform.userName" ng-pattern="nameRegex"/><br>
                   <span class="help-block"
                         ng-show="messageForm.username.$invalid && messageForm.username.$dirty">English alphabet only</span>
                 </div>
@@ -134,7 +128,7 @@
                 <div class="form-group col-md-6"
                      ng-class="{'has-error': messageForm.email.$invalid && messageForm.email.$dirty}">
                   <input class="form-control" name="email" type="email"
-                         placeholder="your@email.com" required ng-model="myform.email"/><br>
+                         placeholder="your@email.com" required ng-model="myform.eMail"/><br>
                   <span class="help-block"
                         ng-show="messageForm.email.$invalid && messageForm.email.$dirty">This is not a valid email.</span>
                   <span class="help-block"

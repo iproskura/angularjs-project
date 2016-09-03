@@ -14,10 +14,10 @@ angular.module("ketPortfolio", ["duScroll", "ngCookies"])
 
   .controller("serviceCtrl", ["$scope", function ($scope) {
     /*$scope.serviceList = [
-      "img/service_00.png",
-      "img/service_01.png",
-      "img/service_02.png",
-      "img/service_03.png"];*/
+     "img/service_00.png",
+     "img/service_01.png",
+     "img/service_02.png",
+     "img/service_03.png"];*/
 
     $scope.serviceList = [
       {src: "img/service_00.png", alt: "web"},
@@ -40,12 +40,21 @@ angular.module("ketPortfolio", ["duScroll", "ngCookies"])
     $scope.nameRegex = /^[a-z]+$/i;
     $scope.mailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]+$/;
 
+
     $scope.myform = {};
+    $scope.myform.userName = $cookies.get("name") || "";
+    $scope.myform.eMail = $cookies.get("email") || "";
 
 
     $scope.submit = function () {
-      console.log("submitting...")
+      console.log("submitting...");
 
+      //cookie
+      var now = new Date();
+      var exp = new Date(now.getFullYear(), now.getMonth()+1, now.getDate());
+
+      $cookies.put("name", $scope.myform.userName, {expires: exp});
+      $cookies.put("email", $scope.myform.eMail, {expires: exp});
 
 
     }
