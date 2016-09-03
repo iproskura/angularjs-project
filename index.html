@@ -90,14 +90,6 @@
         <div class="row">
           <div class="col-md-8 col-lg-8">
 
-            <!--TODO Форма с полями Name, Email, Message. Валидация формы происходит при нажатии на клавиши. При вводе пользователем некорректных данных в поле ввода под этим полем сразу отображается сообщение об ошибке. Сообщение об ошибке сразу же скрывается, если пользователь ввел корректные данные.-->
-
-            <!--TODO В поле Name допускаются только буквы английского алфавита.-->
-
-            <!--TODO В поле Email допускаются толко буквы английского алфавита, цифры, знак подчеркивание и симвом @.-->
-
-            <!--TODO В поле Message допускаются любые символы. Минимальная длина сообщения - 20 символов.-->
-
             <!--TODO При отправке формы значения полей Name и Email сохраняются в cookies.-->
 
             <!--TODO При следующем заходе пользователя на страницу сохраненные данные используются для автозаполнения полей Name и Email.-->
@@ -107,7 +99,8 @@
                   ng-controller="formCtrl" ng-submit="submit()">
 
               <div class="row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-6"
+                     ng-class="{'has-error': messageForm.username.$invalid && messageForm.username.$dirty}">
                   <input class="form-control" name="username" type="text"
                          placeholder="Username" required ng-model="myform.username" ng-pattern="nameRegex"/><br>
                   <span class="help-block"
@@ -115,16 +108,18 @@
                 </div>
 
                 <div class="form-group col-md-6"
-                     ng-class="{'has-error': messageForm.email.$invalid}">
+                     ng-class="{'has-error': messageForm.email.$invalid && messageForm.email.$dirty}">
                   <input class="form-control" name="email" type="email"
                          placeholder="your@email.com" required ng-model="myform.password"/><br>
                   <span class="help-block"
                         ng-show="messageForm.email.$invalid && messageForm.email.$dirty">This is not a valid email.</span>
+                  <span class="help-block"
+                        ng-show="messageForm.email.$error.required && messageForm.email.$dirty">email required.</span>
                 </div>
               </div>
               <div class="row">
                 <div class="form-group col-sm-12"
-                     ng-class="{'has-error': messageForm.username.$invalid}">
+                     ng-class="{'has-error': messageForm.message.$invalid && messageForm.message.$dirty}">
                                 <textarea class="form-control" placeholder="Your message.."
                                           name="message" required ng-model="myform.message"
                                           ng-minlength="20"
