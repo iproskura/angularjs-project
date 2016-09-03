@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/style.css">
 
   <script src="script/angular.js"></script>
+  <script src="script/angular-scroll-master/angular-scroll.min.js"></script>
   <script src="script/mainscript.js"></script>
 </head>
 <body ng-controller="mainCtrl">
@@ -24,13 +25,13 @@
         <a href="#"><img src="img/logo.png" alt="" class="img-responsive"></a>
       </div>
       <nav class="pull-right navbar navbar-light">
-        <div id="menu" class="nav navbar-nav">
-          <a href="#" class="nav-item nav-link">Home</a>
-          <a href="#" class="nav-item nav-link">Services</a>
-          <a href="#" class="nav-item nav-link">Portfolio</a>
-          <a href="#" class="nav-item nav-link">About</a>
-          <a href="#" class="nav-item nav-link">News</a>
-          <a href="#" class="nav-item nav-link">Contact</a>
+        <div id="menu" du-smooth-scroll du-scrollspy class="nav navbar-nav">
+          <a href="#landing" du-smooth-scroll du-scrollspy class="nav-item nav-link">Home</a>
+          <a href="#services" du-smooth-scroll du-scrollspy class="nav-item nav-link">Services</a>
+          <a href="#portfolio" du-smooth-scroll du-scrollspy class="nav-item nav-link">Portfolio</a>
+          <a href="#about" du-smooth-scroll du-scrollspy class="nav-item nav-link">About</a>
+          <a href="#news" du-smooth-scroll du-scrollspy class="nav-item nav-link">News</a>
+          <a href="#contact" du-smooth-scroll du-scrollspy class="nav-item nav-link">Contact</a>
         </div>
       </nav>
     </div>
@@ -40,7 +41,7 @@
   <div id="landing">
     <div class="container-fluid">
       <img src="img/header-bg.jpg" alt="">
-      <button id="starttour" type="button">Start tour</button>
+      <button id="starttour" type="button" du-smooth-scroll="portfolio">Start tour</button>
     </div>
   </div>
   <!--endof #landing-->
@@ -61,7 +62,7 @@
     <div class="container-fluid">
       <div id="portfoliosub">
 
-        <button id="getnow" type="button">Get now</button>
+        <button id="getnow" type="button" du-smooth-scroll="contact">Get now</button>
       </div>
       <div id="stats">
 
@@ -132,7 +133,7 @@
               <div class="form-group">
                 <button type="submit" class="btn btn-primary col-md-2"
                         value="Login" title="Submit" ng-disabled="!messageForm.$valid"
-                        ng-class="{'btn-danger': !messageForm.$valid}">
+                        ng-class="{'btn-danger': !messageForm.$valid && messageForm.$dirty}">
                   <span>Login</span>
                 </button>
               </div>
@@ -151,7 +152,7 @@
   <!--endof contact-->
   <footer>
     <div class="container-fluid">
-      <button id="goup" type="button">&DoubleUpArrow; GO top</button>
+      <button id="goup" type="button" ng-click="toTheTop()">&DoubleUpArrow; GO top</button>
     </div>
   </footer>
 
