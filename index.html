@@ -23,7 +23,7 @@
   <div class="container-fluid navbar navbar-fixed-top header">
     <div class="container">
       <div class="pull-left logo">
-        <a href="#"><img src="img/logo.png" alt="" class="img-responsive"></a>
+        <a href="#landing" du-smooth-scroll><img src="img/logo.png" alt="" class="img-responsive"></a>
       </div>
       <nav class="pull-right navbar navbar-light">
         <div id="menu" du-smooth-scroll du-scrollspy class="nav navbar-nav">
@@ -52,7 +52,7 @@
       <div id="ourservices">
         <div class="container-fluid">
           <div class="col-md-3 col-sm-3" ng-repeat="item in serviceList">
-            <img src="{{item.src}}" alt="{{item.alt}}" ng-click="switch($index)"></div>
+            <img src="{{item.src}}" ng-click="switch($index)">{{item.alt}}</div>
           <div class="col-md-8" ng-switch="serviceSwitchValue">
             <div ng-switch-when="0"><h1>Parma festus calceus est. Audax, camerarius mensas unus imitari de fortis,
               placidus fermium. Fidelis cursus vix transferres fortis est.</h1></div>
@@ -72,7 +72,7 @@
             <img src="img/phones.png" alt="">
           </div>
           <div class="col-md-8 pull-right">
-            <button id="getnow" type="button" du-smooth-scroll="contact">Get now</button>
+            <button id="getnow" type="button" class="btn-lg btn-info" du-smooth-scroll="contact">Get now</button>
           </div>
         </div>
       </div>
@@ -140,8 +140,7 @@
                      ng-class="{'has-error': messageForm.message.$invalid && messageForm.message.$dirty}">
                                 <textarea class="form-control" placeholder="Your message.."
                                           name="message" required ng-model="myform.message"
-                                          ng-minlength="20"
-                                ></textarea><br>
+                                          ng-minlength="20" rows="5"></textarea><br>
                   <span class="help-block"
                         ng-show="messageForm.message.$error.minlength">Min length 20 symbols</span>
                 </div>
