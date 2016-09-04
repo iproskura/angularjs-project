@@ -1,176 +1,217 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="ketPortfolio">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Angular portfolio project</title>
-  <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,800" rel="stylesheet">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/bootstrap-theme.css">
-  <link rel="stylesheet" href="css/style.css">
+    <title>Angular portfolio project</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,800" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/style.css">
 
-  <script src="script/angular.js"></script>
-  <script src="script/angular-cookies.js"></script>
-  <script src="script/angular-scroll-master/angular-scroll.min.js"></script>
-  <script src="script/mainscript.js"></script>
+    <script src="script/angular.js"></script>
+    <script src="script/angular-cookies.js"></script>
+    <script src="script/angular-scroll-master/angular-scroll.min.js"></script>
+    <script src="script/mainscript.js"></script>
 </head>
+
 <body ng-controller="mainCtrl">
 
 <div id="wrapper" class="container-fluid">
-  <!-- navbar -->
-  <div class="container-fluid navbar navbar-fixed-top header">
-    <div class="container">
-      <div class="pull-left logo">
-        <a href="#landing" du-smooth-scroll><img src="img/logo.png" alt="" class="img-responsive"></a>
-      </div>
-      <nav class="pull-right navbar navbar-light">
-        <div id="menu" du-smooth-scroll du-scrollspy class="nav navbar-nav">
-          <a href="#landing" du-smooth-scroll du-scrollspy class="nav-item nav-link">Home</a>
-          <a href="#services" du-smooth-scroll du-scrollspy class="nav-item nav-link">Services</a>
-          <a href="#portfolio" du-smooth-scroll du-scrollspy class="nav-item nav-link">Portfolio</a>
-          <a href="#about" du-smooth-scroll du-scrollspy class="nav-item nav-link">About</a>
-          <a href="#news" du-smooth-scroll du-scrollspy class="nav-item nav-link">News</a>
-          <a href="#contact" du-smooth-scroll du-scrollspy class="nav-item nav-link">Contact</a>
-        </div>
-      </nav>
-    </div>
-  </div>
-  <!-- endof navbar -->
-
-  <div id="landing">
-    <div class="container-fluid">
-      <!--<img src="img/header-bg.jpg" alt="">-->
-      <button id="starttour" type="button" du-smooth-scroll="portfolio" class="btn-lg btn-info">Start tour</button>
-    </div>
-  </div>
-  <!--endof #landing-->
-
-  <div id="services" ng-controller="serviceCtrl">
-    <div class="container-fluid well">
-      <div id="ourservices">
-        <div class="container-fluid">
-          <div class="col-md-3 col-sm-3" ng-repeat="item in serviceList">
-            <img src="{{item.src}}" ng-click="switch($index)">{{item.alt}}</div>
-          <div class="col-md-8" ng-switch="serviceSwitchValue">
-            <div ng-switch-when="0"><h1>Parma festus calceus est. Audax, camerarius mensas unus imitari de fortis,
-              placidus fermium. Fidelis cursus vix transferres fortis est.</h1></div>
-            <div ng-switch-when="1"><h1>The psychic uniqueness of definition is to illuminate with satori.
-              earth.</h1></div>
-            <div ng-switch-when="2"><h1>The hornpipe raids with courage, loot the quarter-deck before it sings.
-              doubloons.</h1></div>
-            <div ng-switch-when="3"><h1>All those definitions will be lost in advices like ellipses in minerals
-              courage.</h1></div>
-
-          </div>
-        </div>
-      </div>
-      <div id="services2">
-        <div class="container-fluid">
-          <div class="col-md-4">
-            <img src="img/phones.png" alt="">
-          </div>
-          <div class="col-md-8 pull-right">
-            <button id="getnow" type="button" class="btn-lg btn-info" du-smooth-scroll="contact">Get now</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--endof #services-->
-
-  <div id="portfolio">
-    <div class="container-fluid">
-
-      <div id="portfoliosub">
-
-
-      </div>
-      <div id="stats">
-
-      </div>
-    </div>
-  </div>
-  <!--endof portfolio-->
-  <div id="about">
-    <div class="container-fluid">
-      <div id="team">
-
-      </div>
-    </div>
-  </div>
-  <!--endof #about-->
-
-  <div id="news">
-
-  </div>
-  <!--endof #news-->
-
-  <div id="contact">
-    <div class="container-fluid">
-      <div class="container-fluid well">
-
-        <div class="row">
-          <div class="col-md-8 col-lg-8">
-            <form name="messageForm" class="form-horizontal" novalidate
-                  ng-controller="formCtrl" ng-submit="submit()">
-
-              <div class="row">
-                <div class="form-group col-md-6"
-                     ng-class="{'has-error': messageForm.username.$invalid && messageForm.username.$dirty}">
-                  <input class="form-control" name="username" type="text"
-                         placeholder="Username" required ng-model="myform.userName" ng-pattern="nameRegex"/><br>
-                  <span class="help-block"
-                        ng-show="messageForm.username.$invalid && messageForm.username.$dirty">English alphabet only</span>
+    <!-- navbar -->
+    <div class="container-fluid navbar navbar-fixed-top header">
+        <div class="container">
+            <div class="pull-left logo">
+                <a href="#landing" du-smooth-scroll><img src="img/logo.png" alt="" class="img-responsive"></a>
+            </div>
+            <nav class="pull-right navbar navbar-light">
+                <div id="menu" du-smooth-scroll du-scrollspy class="nav navbar-nav">
+                    <a href="#landing" du-smooth-scroll du-scrollspy class="nav-item nav-link">Home</a>
+                    <a href="#services" du-smooth-scroll du-scrollspy class="nav-item nav-link">Services</a>
+                    <a href="#portfolio" du-smooth-scroll du-scrollspy class="nav-item nav-link">Portfolio</a>
+                    <a href="#about" du-smooth-scroll du-scrollspy class="nav-item nav-link">About</a>
+                    <a href="#news" du-smooth-scroll du-scrollspy class="nav-item nav-link">News</a>
+                    <a href="#contact" du-smooth-scroll du-scrollspy class="nav-item nav-link">Contact</a>
                 </div>
+            </nav>
+        </div>
+    </div>
+    <!-- endof navbar -->
 
-                <div class="form-group col-md-6"
-                     ng-class="{'has-error': messageForm.email.$invalid && messageForm.email.$dirty}">
-                  <input class="form-control" name="email" type="email"
-                         placeholder="your@email.com" required ng-model="myform.eMail"/><br>
-                  <span class="help-block"
-                        ng-show="messageForm.email.$invalid && messageForm.email.$dirty">This is not a valid email.</span>
-                  <span class="help-block"
-                        ng-show="messageForm.email.$error.required && messageForm.email.$dirty">email required.</span>
+    <div id="landing">
+        <div class="container-fluid">
+            <!--<img src="img/header-bg.jpg" alt="">-->
+            <button id="starttour" type="button" du-smooth-scroll="portfolio" class="btn-lg btn-info">Start tour
+            </button>
+        </div>
+    </div>
+    <!--endof #landing-->
+
+    <div id="services" ng-controller="serviceCtrl">
+        <div class="container-fluid well">
+            <div id="ourservices">
+                <div class="container-fluid">
+                    <div class="col-md-3 col-sm-3" ng-repeat="item in serviceList">
+                        <img src="{{item.src}}" ng-click="switch($index)" class="nav-tabs">{{item.alt}}
+                    </div>
+                    <div class="col-md-8" ng-switch="serviceSwitchValue">
+                        <div ng-switch-when="0"><h1>Parma festus calceus est. Audax, camerarius mensas unus imitari de
+                            fortis,
+                            placidus fermium. Fidelis cursus vix transferres fortis est.</h1></div>
+                        <div ng-switch-when="1"><h1>The psychic uniqueness of definition is to illuminate with satori.
+                            earth.</h1></div>
+                        <div ng-switch-when="2"><h1>The hornpipe raids with courage, loot the quarter-deck before it
+                            sings.
+                            doubloons.</h1></div>
+                        <div ng-switch-when="3"><h1>All those definitions will be lost in advices like ellipses in
+                            minerals
+                            courage.</h1></div>
+
+
+                    </div>
                 </div>
+            </div>
+            <div id="services2">
+                <div class="container-fluid">
+                    <div class="col-md-4">
+                        <img src="img/phones.png" alt="">
+                    </div>
+                    <div class="col-md-8 pull-right">
+                        <button id="getnow" type="button" class="btn-lg btn-info" du-smooth-scroll="contact">Get now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--endof #services-->
+
+    <!--<div class="row">
+    <div class="col-sm-4">
+      <p>Description 2</p>
+      <img src="http://placehold.it/150x80/f4511e?text=PROJECT 2" class="img-responsive"
+           style="width:100%">
+    </div>
+    </div>-->
+
+
+    <div id="portfolio">
+        <div class="container-fluid">
+            <h2>Our portfolio</h2>
+            <p>Nuclear flux at the space station was the ellipse of modification, assimilated to a vital creature.</p>
+            <div class="btn-group">
+                <div class="btn btn-info">All</div>
+                <div class="btn btn-info">Web</div>
+                <div class="btn btn-info">Photography</div>
+                <div class="btn btn-info">Design</div>
+            </div>
+
+            <!--<div class="container-fluid">
+              <div ng-repeat="item in portfolios" style="height: 80px;width: 150px;">
+                <img  src="" class="img-responsive">{{item}}
               </div>
-              <div class="row">
-                <div class="form-group col-sm-12"
-                     ng-class="{'has-error': messageForm.message.$invalid && messageForm.message.$dirty}">
+            </div>
+            <div id="stats">
+
+            </div>-->
+        </div>
+    </div>
+    <!--endof portfolio-->
+    <div id="about">
+        <div class="container-fluid">
+            <div id="team">
+
+            </div>
+        </div>
+    </div>
+    <!--endof #about-->
+
+    <div id="news">
+        <div class="container text-center" style="max-width: 1000px;">
+            <h2>Check our news</h2>
+            <div class="line"></div>
+            <p>The evasive astronaut patiently controls the creature.</p>
+
+            <div ng-repeat="nitem in news | limitTo: 6" class="label-info" ng-cloak ng-click="readNews(nitem.id)">
+
+                <!--TODO format date-->
+
+                <div class="col-md-2">{{nitem.date}}</div>
+                <div class="col-md-10">{{nitem.text}}</div>
+            </div>
+
+        </div>
+    </div>
+    <!--endof #news-->
+
+    <div id="contact">
+        <div class="container-fluid">
+            <div class="container-fluid well">
+                <h2>Contact us</h2>
+
+                <div class="row">
+                    <div class="col-md-8 col-lg-8">
+                        <form name="messageForm" class="form-horizontal" novalidate
+                              ng-controller="formCtrl" ng-submit="submit()">
+
+                            <div class="row">
+                                <div class="form-group col-md-6"
+                                     ng-class="{'has-error': messageForm.username.$invalid && messageForm.username.$dirty}">
+                                    <input class="form-control" name="username" type="text"
+                                           placeholder="Username" required ng-model="myform.userName"
+                                           ng-pattern="nameRegex"/><br>
+                                    <span class="help-block"
+                                          ng-show="messageForm.username.$invalid && messageForm.username.$dirty">English alphabet only</span>
+                                </div>
+
+                                <div class="form-group col-md-6"
+                                     ng-class="{'has-error': messageForm.email.$invalid && messageForm.email.$dirty}">
+                                    <input class="form-control" name="email" type="email"
+                                           placeholder="your@email.com" required ng-model="myform.eMail"/><br>
+                                    <span class="help-block"
+                                          ng-show="messageForm.email.$invalid && messageForm.email.$dirty">This is not a valid email.</span>
+                                    <span class="help-block"
+                                          ng-show="messageForm.email.$error.required && messageForm.email.$dirty">email required.</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-12"
+                                     ng-class="{'has-error': messageForm.message.$invalid && messageForm.message.$dirty}">
                                 <textarea class="form-control" placeholder="Your message.."
                                           name="message" required ng-model="myform.message"
                                           ng-minlength="20" rows="5"></textarea><br>
-                  <span class="help-block"
-                        ng-show="messageForm.message.$error.minlength">Min length 20 symbols</span>
+                                    <span class="help-block"
+                                          ng-show="messageForm.message.$error.minlength">Min length 20 symbols</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary col-md-2"
+                                        value="Login" title="Submit" ng-disabled="!messageForm.$valid"
+                                        ng-class="{'btn-danger': !messageForm.$valid && messageForm.$dirty}">
+                                    <span>Submit message</span>
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
                 </div>
-              </div>
+            </div>
 
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary col-md-2"
-                        value="Login" title="Submit" ng-disabled="!messageForm.$valid"
-                        ng-class="{'btn-danger': !messageForm.$valid && messageForm.$dirty}">
-                  <span>Submit message</span>
-                </button>
-              </div>
-            </form>
+            <div id="address">
 
-          </div>
-        </div>
-      </div>
+            </div>
+        </div> <!-- container-->
 
-      <div id="address">
-
-      </div>
-    </div> <!-- container-->
-
-  </div>
-  <!--endof contact-->
-  <footer>
-    <div class="container-fluid">
-      <button id="goup" type="button" ng-click="toTheTop()">&DoubleUpArrow; GO top</button>
     </div>
-  </footer>
+    <!--endof contact-->
+    <footer>
+        <div class="container-fluid">
+            <button id="goup" type="button" ng-click="toTheTop()">&DoubleUpArrow; GO top</button>
+        </div>
+    </footer>
 
 </div>
 <!-- endof #wrapper -->
